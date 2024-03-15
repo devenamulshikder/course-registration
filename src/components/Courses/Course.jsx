@@ -1,10 +1,14 @@
-const Course = () => {
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+const Course = ({ course }) => {
+    // console.log(course);
+  const { name, description, photo, pricec, redit} = course;
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <figure>
         <img
-          src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-          alt="Shoes"
+          src={photo}
+          alt={name}
         />
       </figure>
       <div className="card-body">
