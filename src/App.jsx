@@ -6,8 +6,13 @@ import Courses from "./components/Courses";
 function App() {
   const [carts, setCarts]= useState([])
   const handleCourseSelection = (course)=>{
-    console.log(course);
-    setCarts(c=> [...c, course])
+    // console.log(course);
+    const alreadyExist = carts.find(c=> c.id === course.id);
+    if (!alreadyExist) {
+      setCarts(c=> [...c, course])
+    } else{
+      alert('Already Exist')
+    }
   }
   return (
     <>
