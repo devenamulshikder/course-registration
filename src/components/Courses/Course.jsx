@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-const Course = ({ course }) => {
-    // console.log(course);
+const Course = ({ course, handleCourseSelection }) => {
+  // console.log(course);
   const { name, description, photo, price, credit } = course;
   return (
     <div className="card bg-base-100 shadow-xl">
@@ -44,16 +44,19 @@ const Course = ({ course }) => {
                 d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
               />
             </svg>
-
             Credit:{credit}
           </p>
         </div>
         <div className="card-actions">
-          <button className="btn btn-info w-full">Select</button>
+          <button
+            onClick={()=>handleCourseSelection(course)}
+            className="btn btn-info w-full"
+          >
+            Select
+          </button>
         </div>
       </div>
     </div>
   );
 };
-
 export default Course;

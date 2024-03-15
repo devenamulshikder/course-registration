@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import { useEffect } from "react";
 import Course from "./Course";
 import { useState } from "react";
 
-const Courses = () => {
+const Courses = ({ handleCourseSelection }) => {
   const [courses, setCourses] = useState([]);
   // console.log(courses);
 
@@ -15,7 +16,11 @@ const Courses = () => {
   return (
     <div className="grid grid-cols-3 gap-4">
       {courses.map((course) => (
-        <Course key={course.id} course={course}/>
+        <Course
+          handleCourseSelection={handleCourseSelection}
+          key={course.id}
+          course={course}
+        />
       ))}
     </div>
   );
