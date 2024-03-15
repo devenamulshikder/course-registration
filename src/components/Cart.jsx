@@ -1,10 +1,15 @@
+/* eslint-disable no-undef */
+
+import { totalCredits } from "../App";
+
 /* eslint-disable react/prop-types */
-const Cart = ({carts}) => {
+const Cart = ({ carts }) => {
+  const credits = carts.reduce((p, c) => p + c.credit, 0);
   return (
     <div className="card bg-base-100 shadow-2xl ml-5">
       <div className="p-4">
         <div>
-          <h3>Credit Hour Remaining {carts.length} hr </h3>
+          <h3>Credit Hour Remaining {totalCredits - credits} hr </h3>
         </div>
         <div className="divider"></div>
         <div>
@@ -18,7 +23,7 @@ const Cart = ({carts}) => {
           </div>
         </div>
         <div className="divider"></div>
-        <div>Total Credit Hour: {carts.reduce((p, c) => p + c.credit, 0)}</div>
+        <div>Total Credit Hour:{credits} </div>
         <div className="divider"></div>
         <div>Total Price: {carts.reduce((p, c) => p + c.price, 0)} USD</div>
         {/* <div className="divider"></div> */}

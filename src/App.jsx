@@ -2,17 +2,18 @@ import { useState } from "react";
 import Cart from "./components/Cart";
 import Courses from "./components/Courses";
 
-
+export const totalCredits =  15;
 function App() {
   const [carts, setCarts]= useState([])
   const handleCourseSelection = (course)=>{
     // console.log(course);
-    const alreadyExist = carts.find(c=> c.id === course.id);
-    if (!alreadyExist) {
-      setCarts(c=> [...c, course])
-    } else{
-      alert('Already Exist')
+    const credits = carts.reduce((p,c)=>p+c.credit,0);
+    if (credits + course.credit > totalCredits) {
+     return alert(`only ${totalCredits} credits allowed`)
     }
+    const alreadyExist = carts.find(c=> c.id === course.id);
+    if (!alreadyExist) 
+      setCarts(c=> [...c, course])
   }
   return (
     <>
